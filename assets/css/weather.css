@@ -1,0 +1,36 @@
+body {
+    background: #ee0979;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+  }
+  html {
+    height: 100%;
+  }
+  #content{
+    color: rgba(255, 255, 255, .4);
+    text-align: center;
+    background-color: rgba(0,0,0,.4);
+    padding: 10%;
+    border-radius: 20px;
+    margin: 20px;
+  }
+  
+  h1 {
+    font-weight: 700px;
+    color: rgba(255, 255, 255, .8);
+  }
+  
+  #temp {
+    font-size: 4em;
+    color: rgba(255, 255, 255, .8);
+  }
+  
+  p#low,#high {
+    font-size: 2em;
+    color: rgba(255, 255, 255, .8);
+  }
+  
+  
+  
+  
