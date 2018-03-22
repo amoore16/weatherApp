@@ -19,6 +19,7 @@ function getWeather(lat, lon){
     }
   });
 }
+//switch to match weather icons from github/yahoo weather api
 function setWeatherIcon(condid) {
   var icon = '';
       switch(condid) {
@@ -126,7 +127,7 @@ function setWeatherIcon(condid) {
   
       return '<i class="wi '+icon+'"></i>';
 }
-
+//changes color of background depending on time of day
 function changeColor(){
   var today = new Date();
   var hourNow = today.getHours();
@@ -144,6 +145,29 @@ function changeColor(){
     $("body").addClass('night');
   }
 }
+//handles button toggles
+function moreInfo(){
+    $("#windBtn").on('click',function(){
+      $("#atmosphere").hide();
+      $("#forecast").hide();
+      $("#wind").fadeToggle();
+    });
+    $("#atmosphereBtn").on('click',function(){
+      $("#wind").hide();
+      $("#forecast").hide();
+      $("#atmosphere").fadeToggle();
+    });
+    $("#forecastBtn").on('click',function(){
+      $("#wind").hide();
+      $("#atmosphere").hide();
+      $("#forecast").fadeToggle();
+    });
+}
+function toCelcius(fahrenheit){
+  var celcius = Math.round((5/9)*(fahrenheit - 32));
+  return celcius;
+}
+
 //caches desired data
 function sortWeather(weatherData){
   var mainData = weatherData.query.results.channel;
@@ -153,7 +177,8 @@ function sortWeather(weatherData){
   var currentCondition = mainData.item.condition;
   var high = mainData.item.forecast[0].high;
   var low = mainData.item.forecast[0].low;
-  var condid = mainData.item.condition.code
+  var condid = mainData.item.condition.code;
+  var foreCast = mainData.item.forecast;
   console.log(mainData);
   var icon = setWeatherIcon(condid);
   postWeather(location, currentCondition, wind, atmosphereData, high, low, icon);
@@ -165,12 +190,36 @@ function postWeather(location, currentCondition, wind, atmosphereData, high, low
   $("#temp").text(currentCondition.temp + String.fromCharCode(176) + "F").before(icon);
   $("#high").text(high + String.fromCharCode(176) + "F");
   $("#low").text(low + String.fromCharCode(176) + "F");
-  
+  $("#wind").text("wind speed: " + wind.speed + "mph")
+  $("#atmosphere").text("humidity: " + atmosphereData.humidity + "%");
+  $("#c").on('click', function(){
+    $("#c").hide();
+    $("#f").fadeIn();
+    $("#temp").text(toCelcius(currentCondition.temp) + String.fromCharCode(176) + "C");
+    $("#high").text(toCelcius(high) + String.fromCharCode(176) + "C");
+    $("#low").text(toCelcius(low) + String.fromCharCode(176) + "C");
+  }); 
+  $("#f").on('click', function(){
+    $("#f").hide();
+    $("#c").fadeIn();
+    $("#temp").text(currentCondition.temp + String.fromCharCode(176) + "F");
+    $("#high").text(high + String.fromCharCode(176) + "F");
+    $("#low").text(low + String.fromCharCode(176) + "F");
+  }); 
+}
+//hides additional weather info
+function hideEm(){
+  $("#wind").hide();
+  $("#atmosphere").hide();
+  $("#forecast").hide();
+  $("#f").hide();
 }
 //wrapper
 function init(){
   getLocation();
   changeColor();
+  hideEm();
+  moreInfo();
 }
 //run it
 $(init);
