@@ -131,14 +131,14 @@ function changeColor(){
   var today = new Date();
   var hourNow = today.getHours();
   console.log(hourNow);
-  if(hourNow > 0){
-    $("body").addClass('morning');
+  if(hourNow > 18){
+    $("body").addClass('evening');
   }
   else if(hourNow > 12){
     $("body").addClass('afternoon');
   }
-  else if (hourNow > 18){
-    $("body").addClass('evening');
+  else if (hourNow > 6){
+    $("body").addClass('morning');
   }
   else {
     $("body").addClass('night');
