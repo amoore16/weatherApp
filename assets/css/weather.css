@@ -33,10 +33,31 @@ p#low,#high {
 
 i{
   color: rgba(255, 255, 255, .8);
+  font-size: 4em;
 }
 
+.morning {
+  background: #FFA17F;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #00223E, #FFA17F);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #00223E, #FFA17F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+}
+.afternoon {
+  background: #2BC0E4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+.evening {
+  background: #de6161;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #2657eb, #de6161);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #2657eb, #de6161); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+.night {
+  background: #141E30;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-
-
+}
   
   

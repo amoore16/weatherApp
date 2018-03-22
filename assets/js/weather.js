@@ -126,6 +126,24 @@ function setWeatherIcon(condid) {
   
       return '<i class="wi '+icon+'"></i>';
 }
+
+function changeColor(){
+  var today = new Date();
+  var hourNow = today.getHours();
+  console.log(hourNow);
+  if(hourNow > 0){
+    $("body").addClass('morning');
+  }
+  else if(hourNow > 12){
+    $("body").addClass('afternoon');
+  }
+  else if (hourNow > 18){
+    $("body").addClass('evening');
+  }
+  else {
+    $("body").addClass('night');
+  }
+}
 //caches desired data
 function sortWeather(weatherData){
   var mainData = weatherData.query.results.channel;
@@ -143,8 +161,8 @@ function sortWeather(weatherData){
 //posts to page
 function postWeather(location, currentCondition, wind, atmosphereData, high, low, icon){
   $("h1").text(location.city + ", " + location.region);
-  $("#temp").before("<h3>" + currentCondition.text + " "+ icon +"</h3>");
-  $("#temp").text(currentCondition.temp + String.fromCharCode(176) + "F");
+  $("#temp").before("<h3>" + currentCondition.text + "</h3>");
+  $("#temp").text(currentCondition.temp + String.fromCharCode(176) + "F").before(icon);
   $("#high").text(high + String.fromCharCode(176) + "F");
   $("#low").text(low + String.fromCharCode(176) + "F");
   
@@ -152,6 +170,7 @@ function postWeather(location, currentCondition, wind, atmosphereData, high, low
 //wrapper
 function init(){
   getLocation();
+  changeColor();
 }
 //run it
 $(init);
