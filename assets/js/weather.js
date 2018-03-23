@@ -135,10 +135,10 @@ function changeColor(){
   if(hourNow > 18){
     $("body").addClass('evening');
   }
-  else if(hourNow > 12){
+  else if(hourNow >= 12){
     $("body").addClass('afternoon');
   }
-  else if (hourNow > 6){
+  else if (hourNow >= 6){
     $("body").addClass('morning');
   }
   else {
@@ -181,30 +181,42 @@ function sortWeather(weatherData){
   var foreCast = mainData.item.forecast;
   console.log(mainData);
   var icon = setWeatherIcon(condid);
-  postWeather(location, currentCondition, wind, atmosphereData, high, low, icon);
+  forecast(foreCast);
+  postWeather(location, currentCondition, wind, atmosphereData, high, low, icon, foreCast);
+}
+function forecast(foreCast){
+  $("#forecast > div:nth-child(1)").append("<h4>" + foreCast[1].day + "</h4>" + "<h5>" + foreCast[1].text + "</h5>" + setWeatherIcon(foreCast[1].code) + "<p>" + foreCast[1].high +"</p>");
+  $("#forecast > div:nth-child(2)").append("<h4>" + foreCast[2].day + "</h4>" + "<h5>" + foreCast[2].text + "</h5>" + setWeatherIcon(foreCast[2].code) + "<p>" + foreCast[2].high +"</p>");
+  $("#forecast > div:nth-child(3)").append("<h4>" + foreCast[3].day + "</h4>" + "<h5>" + foreCast[3].text + "</h5>" + setWeatherIcon(foreCast[3].code) + "<p>" + foreCast[3].high +"</p>");
 }
 //posts to page
-function postWeather(location, currentCondition, wind, atmosphereData, high, low, icon){
+function postWeather(location, currentCondition, wind, atmosphereData, high, low, icon, foreCast){
   $("h1").text(location.city + ", " + location.region);
   $("#temp").before("<h3>" + currentCondition.text + "</h3>");
   $("#temp").text(currentCondition.temp + String.fromCharCode(176) + "F").before(icon);
-  $("#high").text(high + String.fromCharCode(176) + "F");
-  $("#low").text(low + String.fromCharCode(176) + "F");
+  $("#highLow").text(high + " | " + low);
   $("#wind").text("wind speed: " + wind.speed + "mph")
+  
   $("#atmosphere").text("humidity: " + atmosphereData.humidity + "%");
   $("#c").on('click', function(){
     $("#c").hide();
     $("#f").fadeIn();
     $("#temp").text(toCelcius(currentCondition.temp) + String.fromCharCode(176) + "C");
-    $("#high").text(toCelcius(high) + String.fromCharCode(176) + "C");
-    $("#low").text(toCelcius(low) + String.fromCharCode(176) + "C");
+    $("#highLow").text(toCelcius(high) + " | " + toCelcius(low));
+    $("#forecast > div:nth-child(1) > p").text(toCelcius(foreCast[1].high));
+    $("#forecast > div:nth-child(2) > p").text(toCelcius(foreCast[2].high));
+    $("#forecast > div:nth-child(3) > p").text(toCelcius(foreCast[3].high));
   }); 
   $("#f").on('click', function(){
     $("#f").hide();
     $("#c").fadeIn();
     $("#temp").text(currentCondition.temp + String.fromCharCode(176) + "F");
-    $("#high").text(high + String.fromCharCode(176) + "F");
-    $("#low").text(low + String.fromCharCode(176) + "F");
+    $("#highLow").text(high + " | " + low);
+    $("#forecast > div:nth-child(1) > p").text(foreCast[1].high);
+    $("#forecast > div:nth-child(2) > p").text(foreCast[2].high);
+    $("#forecast > div:nth-child(3) > p").text(foreCast[3].high);
+    
+    
   }); 
 }
 //hides additional weather info

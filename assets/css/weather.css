@@ -2,11 +2,11 @@ body {
   background: #ee0979;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  margin: 0;
 }
 html {
-  height: 100%;
+  min-height:100%;
 }
+
 #content{
   color: rgba(255, 255, 255, .4);
   text-align: center;
@@ -26,12 +26,12 @@ h1 {
   color: rgba(255, 255, 255, .8);
 }
 
-p#low,#high {
+p#highLow{
   font-size: 2em;
   color: rgba(255, 255, 255, .8);
 }
 
-i{
+#content > i{
   color: rgba(255, 255, 255, .8);
   font-size: 4em;
   margin: 15px;
@@ -67,11 +67,24 @@ button {
   background: rgba(255,255,255,.1);
   border: none;
   outline: none;
-  margin: 0px;
+  margin: 2px;
   padding: 10px;
+  width: 120px;
 }
 #wind,#atmosphere,#forecast{
   margin: 10px;
   padding: 10px;
   font-size: 2em;
 }
+p {
+    margin: 10px 20px 10px;
+}
+
+#forecast div{
+  background: rgba(255, 255, 255, .1);
+}
+h4 {
+  margin-bottom: 2px;
+}
+
+

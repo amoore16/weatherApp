@@ -8,44 +8,52 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     <script src="assets/js/lib/jquery-3.3.1.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div id="content">
-              <h1> Local Weather </h1>
-              <p id="temp">temp</p>
-              <button id="c">celsius</button>
-              <button id="f">fahrenheit</button>
-              <div class="row">
-                <div class="col-xs-offset-3 col-xs-3 text-center">
-                  <h4>high:</h4>
-                  <p id="high"></p>
+    <head>
+      <title>Weather</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+      <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+      <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+  </head>
+  <body>
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="content">
+                <h1> Local Weather </h1>
+                <p id="temp">temp</p>
+                <button id="c">celsius</button>
+                <button id="f">fahrenheit</button>
+                <div class="row">
+                    <p id="highLow"></p>
                 </div>
-                <div class="col-xs-3 text-center">
-                  <h4>low:</h4>
-                  <p id="low"></p>
+                <button id="windBtn">Wind</button>
+                <button id="atmosphereBtn">Atmosphere</button>
+                <button id="forecastBtn">Forecast</button>
+                <div class="row">
+                  <div id="wind">
+                    <p>Windy!</p>
+                  </div>
+                  <div id="atmosphere">
+                    <p>Dewpoint!</p>
+                  </div>
+                  <div id="forecast">
+                   
+                    <div class="col-md-2 col-md-offset-2 col-xs-8 col-xs-offset-2">
+                     </div>
+                     <div class="col-md-2 col-md-offset-1 col-xs-8 col-xs-offset-2">
+                      
+                     </div>
+                     <div class="col-md-2 col-md-offset-1 col-xs-8 col-xs-offset-2">
+                      
+                     </div>
+                    
+                  </div>
                 </div>
-              </div>
-              <button id="windBtn">Wind</button>
-              <button id="atmosphereBtn">Atmosphere</button>
-              <button id="forecastBtn">Forecast</button>
-              <div class="row">
-                <div id="wind">
-                  <p>Windy!</p>
-                </div>
-                <div id="atmosphere">
-                  <p>Dewpoint!</p>
-                </div>
-                <div id="forecast">
-                  <p>forecast!</p>
-                </div>
-              </div>
-            <div>
+              <div>
+            </div>
           </div>
-        </div>
-    </div>
+      </div>
+ 
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
       <script src="assets/js/weather.js"></script>
       
